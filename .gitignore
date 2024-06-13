@@ -4,4 +4,4 @@
 # Local env files
 .env
 
-__pycache__/
+database/__pycache__
