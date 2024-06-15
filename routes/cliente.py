@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 import sys
 import os
@@ -19,7 +19,17 @@ def lista_cliente():
 @cliente_route.route('/', methods=['POST'])
 def inserir_cliente():
     """  inserir os dados do usuário """
-    pass
+    data = request.json
+
+    novo_usuario ={
+        "id": len(CLIENTES) + 1, 
+        "nome": data['nome'],
+        "email": data['email'],
+     }
+
+    CLIENTES.append(novo_usuario)
+
+    return render_template('item_cliente.html', cliente=novo_usuario)
 
 
 @cliente_route.route('/new')
