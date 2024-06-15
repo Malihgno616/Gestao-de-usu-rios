@@ -56,8 +56,23 @@ def form_edit_usuário(cliente_id):
 
 
 @cliente_route.route('/<int:cliente_id>/update', methods=['PUT'])
-def atualizar_usuario():
+def atualizar_usuario(cliente_id):
     """formulario para atualizar os dados do cliente"""
+    cliente_editado= None
+    #obter dados do formulario de edição
+    data = request.json
+
+    #obter usuarios pelo ID
+    for c in CLIENTES:
+        if c['id'] == cliente_id:
+            c['nome'] = data['nome']
+            c['email'] = data['email']  
+
+            cliente_editado = c
+    #editar usuario
+    return render_template('item_cliente.html', cliente= cliente_editado)
+
+    #editar usuario
     pass
 
 

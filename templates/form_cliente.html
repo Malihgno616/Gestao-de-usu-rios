@@ -8,7 +8,12 @@
 
       method="{% if cliente %}PUT{% else %}POST{% endif %}" 
 
-      c-append="#lista-clientes"
+      {% if cliente %}
+        c-swap="#cliente-{{cliente.id}}"
+
+      {% else %}
+          c-append="#lista-clientes"
+      {% endif %}
       
       >
 
