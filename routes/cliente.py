@@ -44,10 +44,10 @@ def detalhe_usuário():
     return render_template('detalhe_usuario.html')
 
 @cliente_route.route('/<int:cliente_id>/edit')
-def edit_usuário(cliente_id):
+def form_edit_usuário(cliente_id):
     """formulario para editar os dados do cliente"""
 
-    cliente=None
+    cliente = None
     for c in CLIENTES:
         if c['id'] == cliente_id:
             cliente = c
@@ -67,4 +67,5 @@ def delete_usuario(cliente_id):
     
     global CLIENTES    
     CLIENTES =  [  c for c in CLIENTES if c['id'] != cliente_id ]
+    
     return {"deleted": "ok"}
