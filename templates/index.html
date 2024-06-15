@@ -13,9 +13,12 @@
 
   <div class="container">
 
-    <h1>Gestão de Usuários</h1>
+    <h1 class="text-center">Gestão de Usuários</h1>
+
+    
     <!-- formulario para criar clientes-->
-    <div c-container="{{ url_for('clientes.form_cliente') }}"></div>
+    <div id="form-cliente" 
+    c-container="{{ url_for('clientes.form_cliente') }}"></div>
 
     <hr>
 
