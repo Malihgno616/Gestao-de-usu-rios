@@ -1,4 +1,11 @@
 from flask import Blueprint, render_template
+
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 from database.cliente import CLIENTES
 
 cliente_route = Blueprint('clientes', __name__)
