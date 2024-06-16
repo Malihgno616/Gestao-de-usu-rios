@@ -39,9 +39,11 @@ def form_cliente():
 
 
 @cliente_route.route('/<int:cliente_id>')
-def detalhe_usuário():
+def detalhe_usuário(cliente_id):
     """formulario para detalhes dos dados do usuário"""
-    return render_template('detalhe_usuario.html')
+
+    cliente = list(filter(lambda c: c['id'] == cliente_id, CLIENTES))[0]
+    return render_template('detalhe_usuario.html', cliente=cliente)
 
 @cliente_route.route('/<int:cliente_id>/edit')
 def form_edit_usuário(cliente_id):
